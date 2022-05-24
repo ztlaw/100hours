@@ -15,13 +15,42 @@ IDEA: A fitness-dedicated website application, whose main functionality is: When
 
 
 
+
+
+
+
 3 --- SPECIFICS ---
+
+
     1. SEARCH FUNCTION - 
         - Users can use keywords such as "leg", "bicep", "lat" to unlock exercises in the POP-OUT MENU**.
         - Search function allows for checkbox'd filters such as "cable", "compound movement", "dumbbell". Filter starts out as empty and can be filled in.
         - Using the SEARCH FUNCTION** will move the BODY MAP** to its corresponding muscle/group.
         - Will include a click, or "enter" key press to begin search function.
     
-    2. BODY MAP
+    2. BODY MAP - (This will probably be the most complex)
+        - BODY MAP is an interactive map of the body's musculoskeletal system, with labels for all the muscles/groups.
+        - Musculoskeletal body (ideally in a T-pose) can be dragged in a horizonal 360 degree position.
+        - Can be slightly zoomed in an out using the scroll wheel
+        - Map can be dragged by holding the left-click.
+        - On click, the desired muscle/group will be toggled with a red highlight. 
 
+    3. POP-OUT MENU - 
+        - POP-OUT MENU is the large, scrollable menu that pops out onto the right side of the screen and lists out the multiple exercises within the desired muscle/group. 
+        - Menu pops up when the muscle group is clicked in the BODY MAP or searched in the SEARCH FUNCTION.
+        - Menu can be closed, opened, or minimized. 
+        - The top of the Menu shows the searched muscle/group, along with desired filters(FIXED POSITION)
+        - Under the top, shows the scrollable window that lists each exercise, in a descending order by popularity.
+
+    4. USER ACCOUNTS -
+        - Users can save WORKOUTS with the click of a "+" sign at the top right. 
+        - Create acc/Login has a separate pop-up box in the middle of the screen.
+        - Users can create and save "Playlists" of different workout routines, and change names of each "Playlist" 
+
+    5. EXERCISE - 
+        - Within the POP-OUT MENU, each exercise is inside its own dedicated section. 
+        - Each exercise section has an upvote arrow
+        - Each exercise lists the primary and secondary targeted muscle/group respectively. 
+        - Each exercise has a dedicated GIF of someone performing the exercise.
+        - Each exercise has tips on the best way to perform the exercise. 
 
