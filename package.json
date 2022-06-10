@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/ztlaw/100hours/issues"
   },
-  "homepage": "https://github.com/ztlaw/100hours#readme"
+  "homepage": "https://github.com/ztlaw/100hours#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  }
 }
