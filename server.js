@@ -1,3 +1,13 @@
+//server functionality: 
+//this server works as a saveable journal for exercises, their weight, with reps and sets
+//for example: a client can save their
+//      exercise: 'bench press'
+//      weight (in lb or kg): 150
+//      reps: 10
+//      sets: 4
+
+//the exercises will be saved to a MongoDB collection for clients to come back to 
+
 const express = require('express') //express module + methods
 const app = express()
 const MongoClient = require('mongodb').MongoClient //database module + methods
@@ -28,8 +38,11 @@ app.get('/', (req, res) => {
 })
 
 app.post('/addExercise', (req, res) => {
-    db.collection('exercises').insertOne({name: req.body.name, 
-    description: req.body.description, upvotes: 0 })
+    db.collection('exercises').insertOne({
+        exercise: req.body.exercise, 
+        weight: req.body.weight, 
+        sets: req.body.sets,
+        reps: req.body.reps })
         .then(result => {
             console.log('Exercise added successfully.')
             res.redirect('/')
@@ -37,8 +50,7 @@ app.post('/addExercise', (req, res) => {
 })
 
 app.put('/', (req, res) => {
-    db.collection('exercises').updateOne({name: req.body.nameS, description: req.body.descriptionS,
-        likes: req.body.upvotesS},
+    db.collection('exercises').updateOne({name: req.body.exerciseS, },
         {$set: {upvotes: req.body.upvotesS +1}},
         {sort: {_id: -1}, upsert: true})
     .then( result => {
