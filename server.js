@@ -42,7 +42,8 @@ app.post('/addExercise', (req, res) => {
         exercise: req.body.exercise, 
         weight: req.body.weight, 
         sets: req.body.sets,
-        reps: req.body.reps })
+        reps: req.body.reps,
+        upvotes: req.body.upvotes})
         .then(result => {
             console.log('Exercise added successfully.')
             res.redirect('/')
@@ -50,7 +51,8 @@ app.post('/addExercise', (req, res) => {
 })
 
 app.put('/', (req, res) => {
-    db.collection('exercises').updateOne({name: req.body.exerciseS, },
+    db.collection('exercises').updateOne(
+        {name: req.body.exerciseS},
         {$set: {upvotes: req.body.upvotesS +1}},
         {sort: {_id: -1}, upsert: true})
     .then( result => {
