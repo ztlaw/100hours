@@ -39,13 +39,14 @@ app.get('/', (req, res) => {
 })
 
 app.post('/addExercise', (req, res) => {
-    db.collection('exercises').insertOne({
-        exercise: req.body.exercise, 
-        weight: req.body.weight, 
-        sets: req.body.sets,
-        reps: req.body.reps,
-        date: req.body.date,
-        upvotes: req.body.upvotes})
+    db.collection('exercises').insertOne(
+       { 'exercise': req.body.exercise, 
+        'weight': req.body.weight, 
+        'sets': req.body.sets,
+        'reps': req.body.reps,
+        'date': req.body.date,
+        'upvotes': req.body.upvotes} 
+        )
         .then(result => {
             console.log('Exercise added successfully.')
             res.redirect('/')
