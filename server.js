@@ -12,11 +12,12 @@ const express = require('express') //express module + methods
 const app = express()
 const MongoClient = require('mongodb').MongoClient //database module + methods
 const PORT = 2001 
+require('dotenv').config()
 
 
 let db,
     dbConnectionStr = process.env.DB_STRING,
-    dbName = 'work.out'
+    dbName = 'work-out'
 
 MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true})
     .then(client => {
@@ -43,6 +44,7 @@ app.post('/addExercise', (req, res) => {
         weight: req.body.weight, 
         sets: req.body.sets,
         reps: req.body.reps,
+        date: req.body.date,
         upvotes: req.body.upvotes})
         .then(result => {
             console.log('Exercise added successfully.')
@@ -50,13 +52,27 @@ app.post('/addExercise', (req, res) => {
         }).catch(error => console.error(error))
 })
 
-app.put('/', (req, res) => {
+app.put('/addUpvote', (req, res) => {
     db.collection('exercises').updateOne(
-        {name: req.body.exerciseS},
+        {exercise: req.body.exerciseS},
         {$set: {upvotes: req.body.upvotesS +1}},
         {sort: {_id: -1}, upsert: true})
     .then( result => {
         console.log('One exercise upvoted')
         response.json('Upvote applied')
         }).catch( error => console.error(error))
+})
+
+app.delete('/deleteExercise', (req, res) => {
+db.collection('exercises').deleteOne({
+    exercise: req.body.exerciseS,
+    date: req.body.dateS })
+        .then(result =>{
+            console.log('Exercise Deleted')
+            res.json('Rapper Deleted')
+        })
+})
+
+app.listen(process.env.PORT || PORT, () => {
+    console.log(`Server running on wave ${PORT}`)
 })
