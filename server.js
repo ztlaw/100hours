@@ -39,6 +39,7 @@ app.get('/', (req, res) => {
 })
 
 app.post('/addExercise', (req, res) => {
+    console.log(req.body)
     db.collection('exercises').insertOne(
        { 'exercise': req.body.exercise, 
         'weight': req.body.weight, 
@@ -48,6 +49,7 @@ app.post('/addExercise', (req, res) => {
         'upvotes': req.body.upvotes} 
         )
         .then(result => {
+           
             console.log('Exercise added successfully.')
             res.redirect('/')
         }).catch(error => console.error(error))
