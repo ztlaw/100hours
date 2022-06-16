@@ -34,19 +34,19 @@ app.use(express.json())
 app.get('/', (req, res) => {
     db.collection('exercises').find().toArray()
         .then( data => {
-            res.render('index.ejs', {info: data})
+            res.render('index.ejs', {info: req.body})
         }).catch(error => console.error(error))
 })
 
 app.post('/addExercise', (req, res) => {
-    console.log(req.body)
+    console.log(req)
     db.collection('exercises').insertOne(
-       { 'exercise': req.body.exercise, 
-        'weight': req.body.weight, 
-        'sets': req.body.sets,
-        'reps': req.body.reps,
-        'date': req.body.date,
-        'upvotes': req.body.upvotes} 
+       { exercise: req.body.exercise , 
+        weight: req.body.weight, 
+        sets: req.body.sets,
+        reps: req.body.reps,
+        date: req.body.date,
+    upvotes: req.body.upvotes } 
         )
         .then(result => {
            
