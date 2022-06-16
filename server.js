@@ -34,7 +34,8 @@ app.use(express.json())
 app.get('/', (req, res) => {
     db.collection('exercises').find().toArray()
         .then( data => {
-            res.render('index.ejs', {info: req.body})
+            
+            res.render('index.ejs', {info: data})
         }).catch(error => console.error(error))
 })
 
@@ -46,7 +47,7 @@ app.post('/addExercise', (req, res) => {
         sets: req.body.sets,
         reps: req.body.reps,
         date: req.body.date,
-    upvotes: req.body.upvotes } 
+    upvotes: 0 } 
         )
         .then(result => {
            

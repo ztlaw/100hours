@@ -7,7 +7,21 @@
     <title>work.out</title>
 </head>
 <body>
+
     <h1> Work-out web application </h1>
+
+    <ul class="exercises">
+        <% for(let i=0; i < info.length; i++) {%>
+            <li class="exercise">
+                <span><%= info[i].exercise %></span>
+                <span><%= info[i].sets %></span>
+                <span><%= info[i].reps %></span>
+                <span class='fa fa-thumbs-up'></span>
+                <span class='fa fa-trash'></span>
+            </li>
+        <% } %>
+        </ul>
+
     <form action="/addExercise" method="POST">
         <input type='text' placeholder="Exercise name" name="exercise"></input>
         <input type='text' placeholder="Weight in lbs." name="weight"></input>
