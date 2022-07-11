@@ -42,12 +42,12 @@ app.get('/', (req, res) => {
 app.post('/addExercise', (req, res) => {
     console.log(req)
     db.collection('exercises').insertOne(
-       { exercise: req.body.exercise , 
+      /* { exercise: req.body.exercise , 
         weight: req.body.weight, 
         sets: req.body.sets,
         reps: req.body.reps,
         date: req.body.date,
-    upvotes: 0 } 
+    upvotes: 0 } */ req.body // using req.body allows us to add all object properties of the req.
         )
         .then(result => {
            
