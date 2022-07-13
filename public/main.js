@@ -1,7 +1,7 @@
 console.log('We are connected')
 
-const deleteExercise = document.querySelector('bi-x-circle')
+const exercise = document.querySelectorAll('.container')
 
-let exercise = document.querySelector('exercise')
+let deleteExercise = document.querySelectorAll('.bi-x-circle')
 
 console.log(Array.from(exercise))
