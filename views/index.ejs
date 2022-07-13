@@ -17,6 +17,7 @@
 
     <ul class="exercises">
         <% for(let i=0; i < info.length; i++) {%>
+        <div>
             <li class="exercise">
                 <span><%= info[i].exercise %></span>
                 <span><%= info[i].weight %></span>
@@ -27,6 +28,7 @@
                     <i class="bi bi-pencil-square" title="edit"></i>
                     <i class="bi bi-x-circle" title="delete"></i>
                 </div>
+            </div>
             </li>
         <% } %>
         </ul>
