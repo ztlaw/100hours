@@ -1,7 +1,11 @@
 console.log('We are connected')
+const exerciseContainer = document.querySelectorAll('.container')
+const deleteExercise = document.querySelectorAll('.bi-x-circle')
 
-const exercise = document.querySelectorAll('.container')
+Array.from(deleteExercise).forEach( element => {
+    element.addEventListener('click', exerciseDelete)
+})
 
-let deleteExercise = document.querySelectorAll('.bi-x-circle')
-
-console.log(Array.from(exercise))
+async function exerciseDelete(){
+    
+}
