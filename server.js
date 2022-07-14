@@ -73,7 +73,7 @@ db.collection('exercises').deleteOne({
     date: req.body.dateS })
         .then(result =>{
             console.log('Exercise Deleted')
-            res.json('Rapper Deleted')
+            res.json('Exercise Deleted')
         })
 })
 
