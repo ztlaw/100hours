@@ -7,7 +7,7 @@ Array.from(deleteExercise).forEach( element => {
 })
 
 async function exerciseDelete(){
-    const exerciseName = this.parentNode
+    const exerciseName = this.parentNode.childNodes[1].innerText
     console.log(exerciseName)
     if (exerciseName){
        

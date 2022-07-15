@@ -69,8 +69,8 @@ app.put('/addUpvote', (req, res) => {
 
 app.delete('/deleteExercise', (req, res) => {
 db.collection('exercises').deleteOne({
-    exercise: req.body.exerciseS,
-    date: req.body.dateS })
+    exercise: req.body.exerciseS
+})
         .then(result =>{
             console.log('Exercise Deleted')
             res.json('Exercise Deleted')
