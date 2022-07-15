@@ -9,7 +9,7 @@ Array.from(deleteExercise).forEach( element => {
 async function exerciseDelete(){
     const exerciseName = this.parentNode.childNodes[1].innerText
     console.log(exerciseName)
-    if (exerciseName){
+  //  if (exerciseName){
        
        
        
@@ -27,10 +27,11 @@ async function exerciseDelete(){
     
         }catch(err){
             console.log(err)
+        
         }
-    }
+    //}
 
 
-       exerciseName.parentNode.style.visibility = 'hidden'
+     
     }
 
