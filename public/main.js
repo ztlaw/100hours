@@ -7,7 +7,7 @@ Array.from(deleteExercise).forEach( element => {
 })
 
 async function exerciseDelete(){
-    const exerciseName = this.parentNode.childNodes[1].innerText // looking into the html element object and finding its text, which would be the exercise name
+    const exerciseName = this //.parentNode.childNodes[1].innerText // looking into the html element object and finding its text, which would be the exercise name
     console.log(exerciseName)
   //  if (exerciseName){
        
@@ -23,7 +23,7 @@ async function exerciseDelete(){
               })
             const data = await response.json()
             console.log(data)
-            location.reload()
+           // location.reload()
     
         }catch(err){
             console.log(err)
