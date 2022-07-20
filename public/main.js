@@ -1,18 +1,16 @@
 console.log('We are connected')
 const exerciseContainer = document.querySelectorAll('.container') // selecting all .container class elements
 const deleteExercise = document.querySelectorAll('.bi-x-circle') // selecting all X image elements
+const completeExercise = document.querySelectorAll('.bi-check-square')
 
+
+//CREATING DELETE CLICK EVENTS AND FUNCTIONS
 Array.from(deleteExercise).forEach( element => {
     element.addEventListener('click', exerciseDelete) // adding click event to each element
 })
 
 async function exerciseDelete(){
-    const exerciseName = this //.parentNode.childNodes[1].innerText // looking into the html element object and finding its text, which would be the exercise name
-    console.log(exerciseName)
-  //  if (exerciseName){
-       
-       
-       
+    const exerciseName = this.parentNode.childNodes[1].innerText // looking into the html element object and finding its text, which would be the exercise name  
         try{
             const response = await fetch('deleteExercise', { // awaiting data to come from deleteExercise ping
                 method: 'delete',
@@ -23,15 +21,17 @@ async function exerciseDelete(){
               })
             const data = await response.json()
             console.log(data)
-           // location.reload()
+           location.reload()
     
         }catch(err){
             console.log(err)
-        
         }
-    //}
+      }
 
+Array.from(completeExercise).forEach( element => {
+  element.addEventListener('click', exerciseDone) // adding click event to each element
+  })
 
-     
-    }
-
+  async function exerciseDone(){
+    this.parentNode.parentNode.style.background = 'green'
+  }
