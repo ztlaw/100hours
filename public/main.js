@@ -35,3 +35,8 @@ Array.from(completeExercise).forEach( element => {
   async function exerciseDone(){
     this.parentNode.parentNode.style.background = 'green'
   }
+
+  //what do i want to add here?
+  // after clicking the complete exercise, each exercise will turn from neutral color to green, and it gets placed into local storage? 
+  //we will be able to find the old workouts with the click of a button coming from local storage. 
+  //need to find a better way to archive completed exercises
