@@ -42,12 +42,7 @@ app.get('/', (req, res) => {
 app.post('/addExercise', (req, res) => {
     console.log(req)
     db.collection('exercises').insertOne(
-      /* { exercise: req.body.exercise , 
-        weight: req.body.weight, 
-        sets: req.body.sets,
-        reps: req.body.reps,
-        date: req.body.date,
-    upvotes: 0 } */ req.body // using req.body allows us to add all object properties of the req.
+    req.body 
         )
         .then(result => {
            
@@ -56,16 +51,30 @@ app.post('/addExercise', (req, res) => {
         }).catch(error => console.error(error))
 })
 
-app.put('/addUpvote', (req, res) => {
-    db.collection('exercises').updateOne(
-        {exercise: req.body.exerciseS},
-        {$set: {upvotes: req.body.upvotesS +1}},
-        {sort: {_id: -1}, upsert: true})
-    .then( result => {
-        console.log('One exercise upvoted')
-        response.json('Upvote applied')
-        }).catch( error => console.error(error))
-})
+// app.put('/addUpvote', (req, res) => {
+//     db.collection('exercises').updateOne(
+//         {exercise: req.body.exerciseS},
+//         {$set: {upvotes: req.body.upvotesS +1}},
+//         {sort: {_id: -1}, upsert: true})
+//     .then( result => {
+//         console.log('One exercise upvoted')
+//         response.json('Upvote applied')
+//         }).catch( error => console.error(error))
+// })
+
+
+app.put('/', (req, res) => {
+    db.collection('exercises')
+      .updateOne(
+        { _id: new ObjectId(req.body.id) },
+        // { $set: { taskDescription: req.body.taskDescription } }
+      )
+      .then((data) => {
+        return res.send(
+          db.collection('exercises').findOne({ _id: new ObjectId(req.body.id) })
+        )
+      })
+  })
 
 app.delete('/deleteExercise', (req, res) => {
 db.collection('exercises').deleteOne({
