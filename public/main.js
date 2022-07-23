@@ -38,6 +38,7 @@ Array.from(completeExercise).forEach( element => {
 
   async function exerciseDone() {
     this.parentNode.parentNode.style.background = 'green'
+    console.log(this)
     try{
       const response = await fetch('completedExercise', { // awaiting data to come from deleteExercise ping
           method: 'update',
