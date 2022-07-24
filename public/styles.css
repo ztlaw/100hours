@@ -7,7 +7,8 @@
   }
 
   .container{
-    background: red
+    background: red;
+
   }
 
 h1{
@@ -17,11 +18,13 @@ ul{
     list-style: none;
     margin: 0 5%;
     padding: 0;
+    
 }
 
 li{   
     border: 1px solid black;
     margin-top: 1rem;
+    width: 20%;
 }
 
 
