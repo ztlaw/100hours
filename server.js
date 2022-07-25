@@ -32,7 +32,7 @@ app.use(express.urlencoded({extended: true}))
 app.use(express.json())
 
 app.get('/', (req, res) => {
-    db.collection('exercises').find().toArray()
+    db.collection('exercises').find().toArray() //cannot read collection -- need to fix this issue. can it be network issues? WiFi whitelisting?
         .then( data => {
             
             res.render('index.ejs', {info: data})
